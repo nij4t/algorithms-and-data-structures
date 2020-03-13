@@ -1,4 +1,4 @@
-package main
+package hashing
 
 func CalculateHash(key string, size int) int {
 	sum := 0
@@ -19,12 +19,4 @@ func CalculateHashUsingPrimes(key string, size int) (index int) {
 func getPrime(char rune) (prime int) {
 	// TODO Implement
 	return 0
-}
-
-func main() {
-	data := []string{"applejuice", "banana", "avocado", "mango", "staple", "grape", "potato", "rudders", "cheddar", "tomato"}
-
-	for _, item := range data {
-		println(CalculateHash(item, 10))
-	}
 }
