@@ -21,7 +21,7 @@ func Log(msg string, options uint8) {
 		DebugColor   = "\033[0;36m%s\033[0m"
 	)
 
-	switch options & 0x07 {
+	switch options & MASK {
 	case INFO:
 		fmt.Printf(InfoColor, msg)
 	case NOTICE:
