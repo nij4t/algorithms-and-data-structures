@@ -1,14 +1,18 @@
 package bitfields
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 const (
-	INFO   = 0x01 // 00000001
-	NOTICE = 0x02 // 00000010
-	WARN   = 0x03 // 00000011
-	ERROR  = 0x04 // 00000100
-	DEBUG  = 0x05 // 00000101
-	MASK   = 0x07 // 00000111
+	INFO      = 0x01 // 00000001
+	NOTICE    = 0x02 // 00000010
+	WARN      = 0x03 // 00000011
+	ERROR     = 0x04 // 00000100
+	DEBUG     = 0x05 // 00000101
+	MASK      = 0x07 // 00000111
+	TIMESTAMP = 0x08 // 00001000
 )
 
 func Log(msg string, options uint8) {
@@ -20,6 +24,10 @@ func Log(msg string, options uint8) {
 		ErrorColor   = "\033[1;31m%s\033[0m"
 		DebugColor   = "\033[0;36m%s\033[0m"
 	)
+
+	if options&TIMESTAMP>>3 == 1 {
+		fmt.Printf("%s ", time.Now().Format(time.RFC3339))
+	}
 
 	switch options & MASK {
 	case INFO:

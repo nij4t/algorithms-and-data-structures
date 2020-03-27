@@ -15,6 +15,6 @@ func main() {
 	bitfields.Log("info", bitfields.INFO)
 	bitfields.Log("notice", bitfields.NOTICE)
 	bitfields.Log("warn", bitfields.WARN)
-	bitfields.Log("error", bitfields.ERROR)
+	bitfields.Log("error", bitfields.ERROR|bitfields.TIMESTAMP)
 	bitfields.Log("debug", bitfields.DEBUG)
 }
