@@ -1,8 +1,13 @@
+OUT=a.out
+
+all: build
+
 clean:
-	rm a.out
+	[ -f "$(OUT)" ] && rm $(OUT) || echo "Nothing to clean"
 
 build:
-	go build -o a.out ./cmd
+	go build -o $(OUT) ./cmd
 
 run: build
-	./a.out
+	./$(OUT)
+
