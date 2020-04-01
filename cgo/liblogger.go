@@ -8,7 +8,7 @@ import "github.com/nij4t/alorithms-and-data-structures/pkg/bitfields"
 
 //export Log
 func Log(msg *C.char, options uint8) {
-	bitfields.Log(string(*msg), options)
+	bitfields.Log(C.GoString(msg), options)
 }
 
 func main() {}
