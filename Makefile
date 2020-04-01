@@ -1,13 +1,14 @@
-OUT=a.out
+.PHONY = all clean
 
-all: build
+SRCS := $(wildcard cmd/*.go)
+BINS := $(SRCS:%.go=bin/%)
 
-clean:
-	[ -f "$(OUT)" ] && rm $(OUT) || echo "Nothing to clean"
+all: ${BINS}
 
-build:
-	go build -o $(OUT) ./cmd
+bin/%: %.go
+	@echo "Compiling executables..."
+	go build -o $@ $<
 
-run: build
-	./$(OUT)
-
+clean: 
+	@echo "Cleaning up..."
+	rm -rf ${BINS}
