@@ -1,16 +1,13 @@
-# LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):.
 CC=gcc
 CFLAGS=-Wall
-BIN=main
-LIB=logger
 
-all: $(BIN)
+all: main liblogger.so liblogger.h
 
-lib$(LIB).so lib$(LIB).h: liblogger.go
-	go build -o lib$(LIB).so -buildmode=c-shared lib$(LIB).go
+clean:
+	rm main liblogger.h liblogger.so
 
-$(BIN): lib$(LIB).so lib$(LIB).h
-	$(CC) $(CFLAGS) -o $(BIN) main.c -l $(LIB) -L.
+liblogger.so liblogger.h: liblogger.go
+	go build -o liblogger.so -buildmode=c-shared liblogger.go
 
-run: $(BIN)
-	./$(BIN)
+main: liblogger.so liblogger.h
+	$(CC) $(CFLAGS) -o main main.c -l logger -L.
