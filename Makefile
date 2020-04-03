@@ -1,5 +1,7 @@
 .PHONY = all clean
 
+LD_LIBRARY_PATH=.
+
 SRCS := $(wildcard cmd/*.go)
 BINS := $(SRCS:cmd/%.go=bin/%)
 
@@ -16,6 +18,12 @@ bin/%: cmd/%.v
 	@echo "Compiling executables..."
 	v -o $@ $<
 
+lib/liblogger.so bin/liblogger.h: cgo/liblogger.go
+	go build -o lib/liblogger.so -buildmode=c-shared $<
+
+bin/cgo: cmd/cgo.c lib/liblogger.so lib/liblogger.h
+	$(CC) $(CFLAGS) -o bin/cgo cmd/cgo.c -l logger -L./lib
+
 clean: 
 	@echo "Cleaning up..."
-	rm ${BINS} ${V_BINS}
+	rm ${BINS} ${V_BINS} lib/* bin/cgo
