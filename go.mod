@@ -1,3 +1,3 @@
-module github.com/nij4t/alorithms-and-data-structures
+module github.com/nij4t/cs-lab
 
 go 1.13

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/nij4t/alorithms-and-data-structures/pkg/bitfields"
-	"github.com/nij4t/alorithms-and-data-structures/pkg/hashing"
+	"github.com/nij4t/cs-lab/pkg/bitfields"
+	"github.com/nij4t/cs-lab/pkg/hashing"
 )
 
 func main() {
