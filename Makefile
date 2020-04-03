@@ -1,11 +1,11 @@
 .PHONY = all clean
 
 SRCS := $(wildcard cmd/*.go)
-BINS := $(SRCS:%.go=bin/%)
+BINS := $(SRCS:cmd/%.go=bin/%)
 
 all: ${BINS}
 
-bin/%: %.go
+bin/%: cmd/%.go
 	@echo "Compiling executables..."
 	go build -o $@ $<
 
