@@ -1,5 +1,7 @@
-# lru_cache is a decorator that optimizes the performance of
-# function calls by saving its result inside a dictionary
+# lru_cache is a decorator function with a memoizing
+# callable that saves most recent calls. 
+# It can save time when an expensive or I/O bound 
+# function is periodically called with the same arguments.
 # 
 # Example:
 # 
