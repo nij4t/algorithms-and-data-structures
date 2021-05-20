@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/nij4t/cs-lab/pkg/bitfields"
-	"github.com/nij4t/cs-lab/pkg/hashing"
+	"github.com/nij4t/cs-lab/go/pkg/bitfields"
+	"github.com/nij4t/cs-lab/go/pkg/hashing"
 )
 
 func main() {

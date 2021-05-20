@@ -4,7 +4,7 @@ package main
 // #include <errno.h>
 import "C"
 
-import "github.com/nij4t/cs-lab/pkg/bitfields"
+import "github.com/nij4t/cs-lab/go/pkg/bitfields"
 
 //export Log
 func Log(msg *C.char, options uint8) {
